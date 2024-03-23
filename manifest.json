@@ -3,7 +3,6 @@
   "name": "Proxy Splitter",
   "version": "0.0.5",
   "permissions": ["proxy", "storage"],
-  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },

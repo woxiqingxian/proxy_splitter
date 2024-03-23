@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>代理分流工具配置</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ECEFF1;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 确保flex容器充满整个视口高度 */
+            min-width: 500px;
+        }
+        .wrapper {
+            width: 80%;
+            max-width: 800px;
+        }
+        .container {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #37474F;
+            text-align: center;
+            margin-top: 0;
+        }
+        h2 {
+            color: #37474F;
+        }
+        button, select, input[type=text] {
+            font-size: 14px;
+            padding: 8px;
+            margin: 4px 0;
+            display: block;
+            border: 1px solid #B0BEC5;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        button {
+            background-color: #1E88E5;
+            color: white;
+            cursor: pointer;
+            width: auto;
+            margin-left: auto;
+        }
+        button:hover {
+            background-color: #1565C0;
+        }
+        .message {
+            color: #43A047;
+            margin-top: 20px;
+        }
+        label {
+            margin-top: 20px;
+            display: block;
+            color: #546E7A;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            background-color: #cecdcd38;
+        }
+        li button {
+            margin: 0;
+            padding: 5px 10px;
+            font-size: 12px;
+            flex-shrink: 0; /* Prevent the button from shrinking */
+            width: auto;
+            background: darksalmon;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #78909C;
+        }
+        .clear-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .clear-button-container button {
+            background-color: #D32F2F;
+            margin-left: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>代理分流工具</h1>
+        <div class="container">
+            <h2>代理源设置</h2>
+            <form id="proxySourceForm">
+                <label for="proxyName">代理名称:</label>
+                <input type="text" id="proxyName" name="proxyName" required Placeholder="例如：本地代理 8086">
+                <label for="proxyIP">代理IP:</label>
+                <input type="text" id="proxyIP" name="proxyIP" required Placeholder="127.0.0.1">
+                <label for="proxyPort">代理端口:</label>
+                <input type="text" id="proxyPort" name="proxyPort" required Placeholder="8086">
+                <button type="button" id="addProxySource">添加代理源</button>
+            </form>
+            <h2>已配置的代理源</h2>
+            <ul id="proxySourceList"></ul>
+        </div>
+        <div class="container">
+            <h2>默认代理设置</h2>
+            <select id="defaultProxy">
+                <option value="">直连</option>
+                <!-- 动态加载其他代理源 -->
+            </select>
+            <div id="defaultProxyMessage" class="message"></div>
+            <button type="button" id="saveDefaultProxy">保存默认代理</button>
+        </div>
+        <div class="container">
+            <h2>Host 绑定设置</h2>
+            <form id="hostBindingForm">
+                <label for="host">Host:</label>
+                <input type="text" id="host" name="host" required Placeholder="例如：google.com 或者 *.google.com">
+                <label for="selectedProxy">选择代理源:</label>
+                <select id="selectedProxy" name="selectedProxy"></select>
+                <button type="button" id="bindHost">绑定Host到代理源</button>
+            </form>
+            <h2>已绑定的Host</h2>
+            <ul id="boundHostList"></ul>
+        </div>
+        <div class="clear-button-container">
+            <button type="button" id="clearStorage">清除所有存储记录</button>
+        </div>
+        <div class="footer">
+            © 2024 代理分流工具 <a href="https://github.com/woxiqingxian" target="_blank">GitHub</a>
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

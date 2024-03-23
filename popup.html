@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>代理分流工具配置</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ECEFF1;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 确保flex容器充满整个视口高度 */
+            min-width: 500px;
+        }
+        .wrapper {
+            width: 80%;
+            min-width: 400px;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #37474F;
+            text-align: center;
+            margin-top: 0;
+        }
+        h2 {
+            color: #37474F;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            background-color: #cecdcd38;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #78909C;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>代理分流工具</h1>
+        <div class="container">
+            <h2>快捷操作</h2>
+            <ul id="boundHostList"></ul>
+        </div>
+        <a href="options.html" target="_blank">更多设置</a>
+
+        <div class="footer">
+            © 2024 代理分流工具 <a href="https://github.com/woxiqingxian" target="_blank">GitHub</a>
+        </div>
+
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
